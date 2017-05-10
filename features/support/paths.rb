@@ -31,7 +31,7 @@ module NavigationHelpers
     when /^the login page$/ then user_session_path
     when /^the users page$/ then '/static_pages/display'
     when /^the new resident page$/ then '/profiles/new'
-     when /^the change password page$/ then '/auth/register/edit'
+    when /^the change password page$/ then '/auth/register/edit'
   
  
     else

@@ -4,7 +4,7 @@
 <br/>
   <p> <font size="6"> All Residents: (hold "Ctrl" and press "F" to search for one specific resident)<br/><br/></font></p>
    <% @allProfiles.each do |person| %>
-<p> <font size="5"> 
+<p id= <%="Resident-" + person.id.to_s%>  <font size="5"> 
 <a href= <%= "/profiles/" + person.id.to_s %> >   <%= person.first_name %> <%= person.last_name %></a> 
 <font/>
 <br/>

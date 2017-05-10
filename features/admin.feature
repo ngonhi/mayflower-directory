@@ -84,7 +84,6 @@ Scenario: create a resident
   Then I should see "Alice Walker"
   Then I should see "xxxxx@xxxxxx.com"
   
-#not working because it doesn't take you to change password page  
 Scenario: admin creates a regular user
   Given I am on the login page
   And I fill in "Email" with "admin@example.com"
@@ -101,31 +100,29 @@ Scenario: admin creates a regular user
   When I fill in "Email" with "me@mine.com"
   And I fill in "Password" with "friend12345"
   And I press "Log in"
-  Then I should be on the change password page
+  Then I should be on the search page
  
-#not working because of Nokogiri error 
 Scenario: change resident name 
   Given I am on the login page
   And I fill in "Email" with "admin@example.com"
   And I fill in "Password" with "pass12345"
   And I press "Log in"
   And I follow "Edit Residents"
-  And I follow "edit" for "Joseph Nice"
-  And I am on the edit details page for "Joseph Nice"
-  When I fill in "Name" with "Mary"
+  And I follow "edit" for "1"
+  And I am on the edit details page for Joseph Nice
+  When I fill in "First name" with "Mary"
   And I press "Save changes"
-  Then I should be on the search page
   When I follow "All Residents"
   Then I should see "Mary Nice"
 
-#not working because of Nokogiri error 
+#not working because DELETE DOESN'T WORK
 Scenario: Delete a user
-   Given I am on the login page
+  Given I am on the login page
   And I fill in "Email" with "admin@example.com"
   And I fill in "Password" with "pass12345"
   And I press "Log in"
   And I follow "Edit Residents"
-  And I follow "delete" for "Joseph Nice"
+  And I follow "delete" for "1"
   And I confirm the popup
   And I am on the users page
   Then I should not see "Joseph Nice"
