@@ -15,7 +15,8 @@ class ProfilesController < ApplicationController
   end
   
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :nickname, :landline, :cell, :email, :address, :neighborhood, :spouse)
+    params.require(:profile).permit(:first_name, :last_name, :nickname, 
+    :landline, :cell, :email, :address, :neighborhood, :spouse)
   end
    
   def update
@@ -30,16 +31,17 @@ class ProfilesController < ApplicationController
   
   def create
     puts "*** CREATING A NEW USER ****"
+    puts "************" 
     puts profile_params
     @user = Profile.new(profile_params)
-    #puts "User is "
-    #puts @user.to_s
+    @user.avatar = params[:file]
+  
     if @user.save
       flash[:notice] = "profile sucessfully added"
       redirect_to '/profiles/' + @user[:id].to_s
-    else 
+    else
       flash[:notice] = "there was a problem creating the new profile"
-      render action 'profile/new'
+      redirect_to '/profiles/new'
     end
   end
   
@@ -57,8 +59,6 @@ class ProfilesController < ApplicationController
        redirect_to '/static_pages/home'
      end
    end
-  
-
   
   def show
     @profile = Profile.find(params[:id])

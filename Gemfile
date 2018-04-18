@@ -1,15 +1,6 @@
 source 'https://rubygems.org'
 
-
-
 ruby "2.3.4"
-
-#Gem for getting stuff from AWS
-gem 'carrierwave', '~> 1.0'
-
-#minimagick gem
-gem "mini_magick"
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'ransack'
@@ -35,6 +26,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bootstrap-sass', '3.3.6'
+
+#Gem for getting stuff from AWS
+gem 'carrierwave', '~> 1.0'
+
+#minimagick gem
+gem "mini_magick"
 
 # 
 
