@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :nickname, 
-    :landline, :cell, :email, :address, :neighborhood, :spouse)
+    :landline, :cell, :email, :address, :neighborhood, :spouse, :avatar)
   end
    
   def update
@@ -30,10 +30,10 @@ class ProfilesController < ApplicationController
   end
   
   def create
-    puts "*** CREATING A NEW USER ****"
-    puts "************" 
-    puts profile_params
+    puts "****** CREATING A NEW PROFILE *******"
+    puts profile_params.to_s
     @user = Profile.new(profile_params)
+    puts "About to save avatar..."
     @user.avatar = params[:file]
   
     if @user.save

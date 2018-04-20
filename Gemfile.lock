@@ -903,6 +903,8 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     public_suffix (3.0.2)
     rack (2.0.4)
     rack-test (0.6.3)
@@ -1086,6 +1088,7 @@ DEPENDENCIES
   phony_rails
   poltergeist
   pry-byebug
+  pry-rails
   rails (= 5.0.1)
   rails_12factor
   ransack

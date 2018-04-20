@@ -66,6 +66,8 @@ gem 'normalize-rails'
 #   an unbroken version
 gem 'json', '~>1.8.2'
 
+gem 'pry-rails', group: [:development, :test]
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'byebug'
