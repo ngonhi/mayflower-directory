@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 ruby "2.3.4"
 
+gem 'puma'
+
 #Gem for getting stuff from AWS
 gem 'carrierwave', '~> 1.0'
 

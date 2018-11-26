@@ -977,6 +977,7 @@ GEM
       byebug (~> 10.0)
       pry (~> 0.10)
     public_suffix (3.0.3)
+    puma (3.12.0)
     rack (2.0.6)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -1161,6 +1162,7 @@ DEPENDENCIES
   phony_rails
   poltergeist
   pry-byebug
+  puma
   rails (= 5.0.1)
   rails_12factor
   rails_email_validator
@@ -1184,4 +1186,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
