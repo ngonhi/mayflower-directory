@@ -19,14 +19,14 @@ class ProfilesController < ApplicationController
   end
   
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :nickname, :landline, :cell, :email, :address, :neighborhood, :spouse, :avatar, :biography)
+    params.require(:profile).permit(:first_name, :last_name, :nickname, :landline, :cell, :email, :address, :neighborhood, :spouse, :biography, :avatar)
   end
    
   def update
     @user = Profile.find(params[:id])
     if @user.update_attributes(profile_params)
       flash[:success] = "Profile updated"
-      redirect_to '/search'
+      redirect_to action: "show", id: @user
     else
       render 'edit'
     end
@@ -43,7 +43,7 @@ class ProfilesController < ApplicationController
     #puts "User is "
     #puts @user.to_s
     if @user.save
-      flash[:notice] = "profile sucessfully added"
+      flash[:notice] = "Profile sucessfully added"
       redirect_to '/profiles/' + @user[:id].to_s
     else 
       puts "** Could not save profile"
@@ -82,8 +82,14 @@ class ProfilesController < ApplicationController
     flash[:success] = "Profile deleted"
 
     redirect_to '/search'
-
   end
-
+  
+  def directory
+    @allProfiles = Profile.all.order("last_name ASC, first_name ASC")
+  end
+  
+  def get_dataset
+    render json: { data: Profile.all }
+  end
 end
 
